@@ -92,11 +92,11 @@ L'application est organisée en petits modules clairs :
 
 ```mermaid
 flowchart TD
-    U[Utilisateur] --> F[formulaire.py\nUserInput]
-    F --> O[objets.py\nMLInput (one-hot)]
-    O --> A[app.py\nDataFrame pandas]
-    A --> M[model_helper.py\nrename + ordre JSON]
-    M --> P[Modele ML\nPrediction affichee]
+    U[Utilisateur] --> F["formulaire.py<br/>UserInput"]
+    F --> O["objets.py<br/>MLInput one hot"]
+    O --> A["app.py<br/>DataFrame pandas"]
+    A --> M["model_helper.py<br/>rename + ordre JSON"]
+    M --> P["Modele ML<br/>Prediction affichee"]
 ```
 
 > **Concept Focus**
