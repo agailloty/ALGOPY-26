@@ -28,6 +28,15 @@ Vous allez créer une application Streamlit qui prédit une prime d'assurance
 Utilisateur → Formulaire → Encodage → DataFrame → Modèle → Prédiction
 ```
 
+```mermaid
+flowchart LR
+    U["Utilisateur<br/>saisit ses infos"] --> F["Formulaire<br/>collecte les champs"]
+    F --> E["Encodage<br/>convertit en variables ML"]
+    E --> D["DataFrame<br/>noms de colonnes corrects"]
+    D --> M["Modele ML<br/>calcule la prediction"]
+    M --> P["Prediction<br/>montant affiche"]
+```
+
 ---
 
 ## 🚀 Démarrage rapide (Git + VS Code)
