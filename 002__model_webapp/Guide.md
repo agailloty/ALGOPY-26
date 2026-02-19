@@ -56,6 +56,17 @@ Le dossier suivant doit exister :
 
 ## 🏗️ Architecture du projet
 
+### Vue d'ensemble
+
+L'application est organisée en petits modules clairs :
+
+- **objets.py** : structure des données (UserInput → MLInput)
+- **formulaire.py** : interface utilisateur (sidebar Streamlit)
+- **model_helper.py** : chargement des modèles + mapping des colonnes
+- **app.py** : orchestration et affichage des prédictions
+
+### Structure des fichiers
+
 ```
 002__model_webapp/
 ├── pyproject.toml
@@ -64,6 +75,30 @@ Le dossier suivant doit exister :
 ├── model_helper.py
 └── app.py
 ```
+
+### Flux de données (du formulaire à la prédiction)
+
+```
+Utilisateur
+    │
+    ▼
+formulaire.py  → UserInput (données brutes)
+    │
+    ▼
+objets.py      → MLInput (one-hot encoding)
+    │
+    ▼
+app.py         → DataFrame pandas (noms Python)
+    │
+    ▼
+model_helper.py → rename + ordre JSON
+    │
+    ▼
+Modèle ML      → Prédiction affichée
+```
+
+> **Concept Focus**
+> *Pourquoi cette séparation ?* Chaque fichier a un rôle unique, ce qui rend le projet plus lisible et facile à maintenir.
 
 ---
 
@@ -486,15 +521,3 @@ uv run streamlit run app.py
 ```
 
 ---
-
-## ✅ Check rapide
-
-- [ ] `uv sync` execute
-- [ ] Tous les fichiers crees
-- [ ] `feature_names.json` present
-- [ ] `uv run streamlit run app.py` fonctionne
-
----
-
-**Version** : 2.1  
-**Derniere mise a jour** : Fevrier 2026
