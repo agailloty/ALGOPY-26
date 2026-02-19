@@ -1,7 +1,7 @@
 # 🏥 Guide de Construction : Application Web de Prédiction ML
 
 > **Objectif** : Construire uniquement `002__model_webapp` avec **uv**.
-> Le projet `002__model_training` est déjà cloné et contient les modèles prêts.
+> Le projet complet est disponible sur GitHub : https://github.com/agailloty/ALGOPY-26/
 
 ---
 
@@ -26,6 +26,18 @@ Vous allez créer une application Streamlit qui prédit une prime d'assurance
 
 ```
 Utilisateur → Formulaire → Encodage → DataFrame → Modèle → Prédiction
+```
+
+---
+
+## 🚀 Démarrage rapide (Git + VS Code)
+
+Exécutez les commandes suivantes dans un terminal :
+
+```bash
+git clone https://github.com/agailloty/ALGOPY-26.git
+cd ALGOPY-26\002__model_webapp
+code .
 ```
 
 ---
@@ -76,25 +88,15 @@ L'application est organisée en petits modules clairs :
 └── app.py
 ```
 
-### Flux de données (du formulaire à la prédiction)
+### Flux de données (du formulaire a la prediction)
 
-```
-Utilisateur
-    │
-    ▼
-formulaire.py  → UserInput (données brutes)
-    │
-    ▼
-objets.py      → MLInput (one-hot encoding)
-    │
-    ▼
-app.py         → DataFrame pandas (noms Python)
-    │
-    ▼
-model_helper.py → rename + ordre JSON
-    │
-    ▼
-Modèle ML      → Prédiction affichée
+```mermaid
+flowchart TD
+    U[Utilisateur] --> F[formulaire.py\nUserInput]
+    F --> O[objets.py\nMLInput (one-hot)]
+    O --> A[app.py\nDataFrame pandas]
+    A --> M[model_helper.py\nrename + ordre JSON]
+    M --> P[Modele ML\nPrediction affichee]
 ```
 
 > **Concept Focus**
