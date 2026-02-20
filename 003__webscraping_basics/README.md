@@ -19,10 +19,16 @@ cd ALGOPY-26\003__webscraping_basics
 ```bash
 uv sync
 ```
+### Ouvrir VS Code dans le répertoire 
+
+```bash
+code .
+```
 
 ### Démarrer Jupyter Lab
 Assurez-vous d'être dans le dossier `003__webscraping_basics`
 ```bash
 uv run jupyter lab
 ```
+
 
