@@ -1,4 +1,4 @@
-# Script pour enregistrer les pages HTML en provenance de sofifa.com
+# Script pour enregistrer les pages HTML en provenance de sofifa.com dans un dossier data
 
 # J'utilise playwright codegen sofifa.com pour générer du script Python
 # Que je vais adapter
@@ -6,6 +6,8 @@
 import re
 from playwright.sync_api import Playwright, sync_playwright, expect
 import time
+import os
+import pathlib
 
 
 def run(playwright: Playwright) -> None:
@@ -25,8 +27,16 @@ def run(playwright: Playwright) -> None:
 
     # Boucler pour sauvegarder les pages.
 
+    # On aimerait qu'il crée le data data dans l'emplacement où se trouve le script
+
+    base_directory = pathlib.Path(__file__).parent / "data"
+
+    if not os.path.exists(base_directory):
+        os.mkdir(base_directory)
+
     for i in range(5):
-        with open(f"sofifa-page-{i+1}.html", "w", encoding="utf-8") as file: # r : read ; w: write
+        filepath = base_directory / f"sofifa-page-{i+1}.html"
+        with open(filepath, "w", encoding="utf-8") as file: # r : read ; w: write
             file.write(page.content())
         page.get_by_role("link", name="Next").click()
         time.sleep(2)
