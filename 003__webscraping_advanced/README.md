@@ -2,7 +2,8 @@
 git clone https://github.com/agailloty/ALGOPY-26.git
 ```
 
-```cd 003__webscraping_advanced
+```
+cd ALGOPY-26\003__webscraping_advanced
 ```
 
 ```
