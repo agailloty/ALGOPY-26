@@ -36,6 +36,7 @@ def run(playwright: Playwright) -> None:
 
     for i in range(5):
         filepath = base_directory / f"sofifa-page-{i+1}.html"
+        time.sleep(2)
         with open(filepath, "w", encoding="utf-8") as file: # r : read ; w: write
             file.write(page.content())
         page.get_by_role("link", name="Next").click()
